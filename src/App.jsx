@@ -18,7 +18,7 @@ const formats = [
     title: "Tu experiencia, en un solo lugar",
     description:
       "Un portfolio profesional para quienes buscan empleo y quieren mostrar sus proyectos, formación académica, medios de contacto y un CV listo para descargar.",
-    detail: "Proyectos · Formación · Contacto · CV",
+    detail: "Sobre mí · Formación · Experiencia · Habilidades · Proyectos · Contacto · CV",
     image: "/images/formato-portfolio.jpg",
     demo: "https://portfolio-web-delta-gilt.vercel.app/",
     id: "portfolio",
@@ -301,32 +301,30 @@ export default function App() {
           >
             {/* visual */}
             <div
-              className={`relative flex aspect-[1.16/1] items-center justify-center overflow-hidden rounded-sm ${
+              className={`relative flex aspect-[1.16/1] items-center justify-center rounded-sm ${
                 index % 2 === 1 ? "md:order-2" : ""
               }`}
               style={{ background: index === 0 ? "#c9dce0" : "#c9c3d8" }}
             >
-              <span className="absolute left-5 top-[18px] text-[8px] tracking-[0.18em] text-[rgba(21,35,49,0.6)]">
+              <span className="absolute left-5 top-[18px] z-10 text-[8px] tracking-[0.18em] text-[rgba(21,35,49,0.6)]">
                 {fmt.number}
               </span>
               {/* imagen real */}
               <img
                 src={fmt.image}
                 alt={`Vista previa formato ${fmt.type}`}
-                className="absolute inset-0 h-full w-full object-cover object-top shadow-[0_28px_55px_rgba(15,28,40,0.22)]"
-                style={{ transform: index % 2 === 0 ? "rotate(-3deg) scale(1.08)" : "rotate(3deg) scale(1.08)" }}
+                className="w-[82%] shadow-[0_28px_55px_rgba(15,28,40,0.22)]"
+                style={{ transform: index % 2 === 0 ? "rotate(-5deg)" : "rotate(5deg)" }}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                   e.currentTarget.nextSibling.style.display = "flex";
                 }}
               />
               {/* fallback si no hay imagen */}
-              <div
-                className="absolute inset-0 hidden items-center justify-center text-[rgba(21,35,49,0.4)] text-sm"
-              >
+              <div className="absolute inset-0 hidden items-center justify-center text-[rgba(21,35,49,0.4)] text-sm">
                 Imagen próximamente
               </div>
-              <span className="absolute bottom-[17px] right-5 text-[8px] tracking-[0.18em] text-[rgba(21,35,49,0.6)]">
+              <span className="absolute bottom-[17px] right-5 z-10 text-[8px] tracking-[0.18em] text-[rgba(21,35,49,0.6)]">
                 sMART TECH — FORMATO WEB
               </span>
             </div>
