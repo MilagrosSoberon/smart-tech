@@ -313,8 +313,8 @@ export default function App() {
               <img
                 src={fmt.image}
                 alt={`Vista previa formato ${fmt.type}`}
-                className="h-[69%] w-[76%] object-contain object-top shadow-[0_28px_55px_rgba(15,28,40,0.22)]"
-                style={{ transform: index % 2 === 0 ? "rotate(-3deg)" : "rotate(3deg)" }}
+                className="absolute inset-0 h-full w-full object-cover object-top shadow-[0_28px_55px_rgba(15,28,40,0.22)]"
+                style={{ transform: index % 2 === 0 ? "rotate(-3deg) scale(1.08)" : "rotate(3deg) scale(1.08)" }}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
                   e.currentTarget.nextSibling.style.display = "flex";
