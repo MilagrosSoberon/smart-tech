@@ -9,6 +9,7 @@ const formats = [
       "Una landing para promocionar tu negocio con secciones de nosotros, servicios, una selección de productos y contacto. Ideal para profesionales y comercios que necesitan una presencia clara y confiable.",
     detail: "Nosotros · Servicios · Productos · Contacto",
     image: "/images/formato-catalogo.jpg",
+    demo: "https://dra-cc.vercel.app/",
     id: "catalog",
   },
   {
@@ -19,6 +20,7 @@ const formats = [
       "Un portfolio profesional para quienes buscan empleo y quieren mostrar sus proyectos, formación académica, medios de contacto y un CV listo para descargar.",
     detail: "Proyectos · Formación · Contacto · CV",
     image: "/images/formato-portfolio.jpg",
+    demo: "https://portfolio-web-delta-gilt.vercel.app/",
     id: "portfolio",
   },
 ];
@@ -311,7 +313,7 @@ export default function App() {
               <img
                 src={fmt.image}
                 alt={`Vista previa formato ${fmt.type}`}
-                className="h-[69%] w-[76%] object-cover shadow-[0_28px_55px_rgba(15,28,40,0.22)]"
+                className="h-[69%] w-[76%] object-contain object-top shadow-[0_28px_55px_rgba(15,28,40,0.22)]"
                 style={{ transform: index % 2 === 0 ? "rotate(-3deg)" : "rotate(3deg)" }}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
@@ -351,14 +353,24 @@ export default function App() {
               >
                 {fmt.detail}
               </div>
-              <a
-                href={FACEBOOK_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-7 rounded-full text-[13px] text-white transition-colors hover:text-[#1659f5]"
-              >
-                Consultar por este formato <ArrowIcon />
-              </a>
+              <div className="flex flex-col gap-4">
+                <a
+                  href={fmt.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-7 rounded-full border border-white/30 px-5 py-3 text-[13px] text-white transition-colors hover:border-white hover:text-white"
+                >
+                  Ver ejemplo en vivo <ArrowIcon />
+                </a>
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-7 rounded-full text-[13px] text-[#7b8c9b] transition-colors hover:text-[#1659f5]"
+                >
+                  Consultar por este formato <ArrowIcon />
+                </a>
+              </div>
             </div>
           </article>
         ))}
